@@ -1,0 +1,91 @@
+
+body{
+    background-size: cover;
+    margin: 0%;
+    
+    background-image: url("https://i.pinimg.com/564x/ae/c6/c6/aec6c653e54d6bd4a1b8c28656ab0413.jpg");
+}
+
+.container{
+    
+    width: 70%;
+    background-image: linear-gradient(to right, rgba(138, 25, 243, 0.897) , rgba(81, 222, 244, 0.832));
+    box-shadow: #000;
+    max-width: 470px;
+    color: #fff;
+    margin: 80px auto;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,.466);
+
+}
+.search{
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+.search input{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(98, 98, 98);
+    border: 0;
+    outline: 0;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 20px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 22px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.466);
+}
+.search_icon{
+    height: 80px;
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,.466);
+
+}
+.weather_img{
+    margin-top: 50px;
+    height: 150px;
+}
+
+
+.weather h1{
+    margin-top: 30px;
+    font-size: 45px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: 500px;
+}
+.weather h2{
+    margin-top: -30px;
+    font-size: 45px;
+font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+font-weight: 400px;
+}
+.details{
+    display: flex;
+    justify-content: space-between;
+    margin: 50px ;
+
+}
+.col{
+    
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    text-align: left;
+   
+}
+.col img{
+    width: 50px;
+
+    margin-right: 10px;
+}
+.col div p{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 300;
+}
