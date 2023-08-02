@@ -11,9 +11,9 @@ body{
     width: 70%;
     background-image: linear-gradient(to right, rgba(138, 25, 243, 0.897) , rgba(81, 222, 244, 0.832));
     box-shadow: #000;
-    max-width: 470px;
+    max-width: 400px;
     color: #fff;
-    margin: 80px auto;
+    margin: 50px auto;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
@@ -34,7 +34,7 @@ body{
     border: 0;
     outline: 0;
     padding: 10px 25px;
-    height: 60px;
+    height: 40px;
     border-radius: 20px;
     flex: 1;
     margin-right: 16px;
@@ -42,7 +42,8 @@ body{
     box-shadow: 0 5px 15px rgba(0,0,0,.466);
 }
 .search_icon{
-    height: 80px;
+    position: sticky;
+    height: 60px;
     border-radius: 20px;
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0,0,0,.466);
@@ -55,13 +56,28 @@ body{
 
 
 .weather h1{
-    margin-top: 30px;
-    font-size: 45px;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-font-weight: 500px;
+    background-color: #000;
+    margin-top: 0px;
+    font-size: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 500px;
 }
+.min_max{
+    
+  
+    display: flex;
+    justify-content: space-evenly;
+    padding:0 25%;
+   margin-top: -40px;
+   font-size: large;
+   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+    
+
+}
+
 .weather h2{
-    margin-top: -30px;
+    margin-top: 0px;
     font-size: 45px;
 font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 font-weight: 400px;
@@ -73,7 +89,7 @@ font-weight: 400px;
 
 }
 .col{
-    
+    justify-content: space-between;
     display: flex;
     align-items: center;
     margin-top: 20px;
@@ -87,5 +103,5 @@ font-weight: 400px;
 }
 .col div p{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 300;
+    font-weight: 300;margin-right: 10px;
 }
