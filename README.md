@@ -6,6 +6,11 @@ this application is completly build using javascript and used OpenWeather API,
 
 
 
+![Uploading Screenshot 2023-08-03 115641.png…]()
+
+
+
+![Uploading Screenshot 2023-08-03 115709.png…]()
 
 
 
@@ -13,3 +18,4 @@ this application is completly build using javascript and used OpenWeather API,
 
 
 
+![Uploading Screenshot 2023-08-03 115743.png…]()
