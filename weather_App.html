@@ -12,15 +12,34 @@
     <div class="container">
         <!---------------- SEARCH BAR ----------------->
              <div class="search">
-                <input type="text" placeholder="write the city name">
+                <input type="text" placeholder="write the city name" class="input_text" list="programmingLanguages" spellcheck="false">
+                
+                <datalist id="programmingLanguages">
+                    <option value="palakkad">palakkad</option>
+                    <option value="malappuram">malappuram</option>
+                    <option value="kozhikode">kozhikode</option>
+                    <option value="kannur">kannur</option>
+                    <option value="kasargod">kasargod</option>
+                    <option value="thrissur">thrissur</option>
+                    <option value="ernakulam">ernakulam</option>
+                    <option value="thiruvanathapuram">thiruvanathapuram</option>
+                    <!-- <option value="PHP"></option>
+                    <option value="Pascal">Pascal</option>
+                    <option value="Perl">Perl</option>
+                    <option value="R">R</option>
+                    <option value="Swift">Swift</option> -->
+                </datalist>
+
+
                 <img src="https://i.pinimg.com/736x/e7/d4/50/e7d450d8c31ae10aa663d082fdbb3db9.jpg" class="search_icon">
-            </div>
+           
+            </div> <p class="error">Invalid City Name</p>
         <!----------------* SEARCH BAR *----------------->
 
         <!---------------- WEATHER DETAILS ----------------->
 
             <div class="weather">
-      <img src="images/clear.png" class="weather_img">
+      <img src="" class="weather_img">
                 <div><h1 class="temp">22°C</h1></div>
                 <div class="min_max"><p class="min" >20</p><p class="max">22</p></div>
                 <h2 class="place">place</h2>
@@ -39,8 +58,7 @@
 
                     <img src="images/humidity.png" alt="">
                     <div><p>Humidity</p>
-                        <p class="humidity">20Km/h</p>
-                        
+                        <p class="humidity">20Km/h</p>     
                     </div>
                 </div>
                 </div>
@@ -49,18 +67,70 @@
     </div>
     <script>
         const Api_key= 'd9086859e4c7d9b2dea2e610360e8885'
-        const appurl='https://api.openweathermap.org/data/2.5/weather?units=metric&q=kerala&appid='
+        const appurl='https://api.openweathermap.org/data/2.5/weather?units=metric&q='
+        const weather_img=document.querySelector('.weather_img');
+        const place_element=document.querySelector('.input_text');
+        const searchbtn=document.querySelector('.search_icon');
 
-        async function collectdata() {
-            const responce  = await fetch(appurl+Api_key);
-            var data = await responce.json();
+        
+        
+             async function collectdata(place) {
+                const responce  = await fetch(appurl+place+`&appid=${Api_key}`);
+                var data = await responce.json();
+
+                if (responce.status == 404){
+                    document.querySelector('.error').style.display='block'
+                }else{
             console.log(data)
-            document.querySelector('.temp').innerHTML=data.main.temp
-            document.querySelector('.place').innerHTML=data.name
-            document.querySelector('.min').innerHTML=data.main.temp_min
-            document.querySelector('.max').innerHTML=data.main.temp_max
-        }
-        collectdata();
+            document.querySelector('.error').style.display='none'
+                
+                    document.querySelector('.temp').innerHTML= Math.round(data.main.temp)+'°C';
+        document.querySelector('.place').innerHTML=data.name 
+        document.querySelector('.min').innerHTML=Math.round(data.main.temp_min)+'°';
+        document.querySelector('.max').innerHTML=Math.round(data.main.temp_max)+'°';
+        document.querySelector('.humidity').innerHTML=Math.round(data.main.humidity)+'%';
+        document.querySelector('.wind').innerHTML=Math.round(data.wind.speed)+'km/h';
+
+
+            
+
+        let climate =data.weather[0].main;
+            if (climate='clouds') {
+                weather_img.src="images/clouds.png"
+                
+            } else if (climate='clear') {
+                weather_img.src="images/clear.png"
+                
+            }else if (climate='drizzle') {
+                weather_img.src="images/drizzle.png"
+                
+            }else if (climate='mist') {
+                weather_img.src="images/mist.png"
+                
+            }else if (climate='rain') {
+                weather_img.src="images\rain.png"
+                
+            }else if (climate='snow') {
+                weather_img.src="images/snow.png"
+
+            }else{
+                weather_img.src="https://i.pinimg.com/236x/90/75/b4/9075b45769a6f3edae2e13424e0016d6.jpg"
+            }
+            document.querySelector('.weather').style.display='block'
+                }
+                
+                }
+        place_element.addEventListener('keypress',function(){
+            if (event.key === "Enter") {
+                event.preventDefault();
+                    collectdata(place_element.value);
+
+            }
+        })
+        searchbtn.addEventListener('click',()=>{
+            collectdata(place_element.value);
+        })
+        
     </script>    
     
 

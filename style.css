@@ -1,15 +1,19 @@
 
+
 body{
     background-size: cover;
     margin: 0%;
     
-    background-image: url("https://i.pinimg.com/564x/ae/c6/c6/aec6c653e54d6bd4a1b8c28656ab0413.jpg");
+    background-image: url("https://i.pinimg.com/originals/f8/42/6b/f8426bf4f6892dfed16b2e0f583d5670.gif");
+}
+body::-webkit-scrollbar{
+    display: none;
 }
 
 .container{
     
     width: 70%;
-    background-image: linear-gradient(to right, rgba(138, 25, 243, 0.897) , rgba(81, 222, 244, 0.832));
+    background-image: linear-gradient(to right, rgba(138, 25, 243, 0.785) , rgba(81, 222, 244, 0.653));
     box-shadow: #000;
     max-width: 400px;
     color: #fff;
@@ -18,8 +22,9 @@ body{
     padding: 40px 35px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,.466);
-
+    min-height: 90px;
 }
+
 .search{
     margin-top: 5%;
     width: 100%;
@@ -48,6 +53,18 @@ body{
     cursor: pointer;
     box-shadow: 0 5px 15px rgba(0,0,0,.466);
 
+}
+.error{
+    text-align: start;
+    padding-left: 10px;
+    color: red;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 300;
+    display: none;
+}
+.weather{
+    display: none;
 }
 .weather_img{
     margin-top: 50px;
