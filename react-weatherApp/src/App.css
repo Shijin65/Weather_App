@@ -1,0 +1,14 @@
+.time{
+    -webkit-text-stroke: 3px rgb(255, 255, 255);
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.AM{
+    -webkit-text-stroke: 3px rgb(255, 255, 255);
+   -webkit-text-fill-color: transparent;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.sunimg{
+      
+        filter: drop-shadow(5px 5px 5px #000000c7);
+}
