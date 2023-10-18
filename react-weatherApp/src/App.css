@@ -12,3 +12,7 @@
       
         filter: drop-shadow(5px 5px 5px #000000c7);
 }
+:root{
+    width: 100vw;
+    height: 100vh;
+}
