@@ -1,8 +1,24 @@
-import { useState } from "react";
-
-import "./App.css";
-
+import { useEffect, useState } from "react";
+import { API_KEY, APP_URL } from "./Constants";
+import axios from "axios";
 function App() {
+  const[data,setdata]=useState([])
+  useEffect(() => {
+    axios
+      .get(APP_URL+"MANNARKKAD"+`&appid=${API_KEY}`)
+      .then(function (response) {
+       setdata(response.data)
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+    // console.log(API_KEY,APP_URL)
+  }, []);
   const card = [1, 1, 1, 1, 1, 1, 1];
   return (
     <div
@@ -27,7 +43,7 @@ function App() {
             </div>
 
             {/* search */}
-            <div className="flex gap-2 h-16" >
+            <div className="flex gap-2 h-16">
               <input
                 type="text"
                 name=""
@@ -85,12 +101,12 @@ function App() {
                 <div className="basis-1/2  flex flex-col justify-center items-center ">
                   <div>
                     <h1 className="  w-[279px] h-[45.972px] text-white text-center text-[38.045px] not-italic font-light leading-[normal] tracking-[5.897px]">
-                      location
+                      {data.name}
                     </h1>
                   </div>
                   <div>
                     <h1 className=" text-white text-[106px]  font-extralight">
-                      00°C
+                      {Math.round(data.main.temp)}°C
                     </h1>
                   </div>
                 </div>
