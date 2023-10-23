@@ -14,10 +14,11 @@ function App() {
       .then(function (response) {
        setdata(response.data)
        settemp(Math.round(response.data.main.temp))
-        console.log(Math.round(response.data.main.temp));
+        console.log(response.data.main);
       })
       .catch(function (error) {
         // handle error
+        alert("error")
         console.log(error);
       })
       .finally(function () {
@@ -36,8 +37,11 @@ function App() {
       className="h-screen w-screen bg-cover bg-center text-white "
     >
       <div className="p-10">
+        <div className="w-full flex justify-center pb-10">
+          <h1 className="font-bold text-4xl">SJN weather app</h1>
+        </div>
         <header>
-          {/* <Navbar/> */}
+          <Navbar/>
         </header>
 
         <Mainbody data={data} temp={temp} />

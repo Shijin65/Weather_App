@@ -4,7 +4,7 @@ function Week() {
   return (
     <div>
         <div className="px-10">
-              <div className=" text-2xl  border-b-4  border-white border-opacity-50 ">
+              <div className="text-lg sm:text-2xl  border-b-4  border-white border-opacity-50 ">
                 <h1>This Week</h1>
               </div>
               <div className="flex gap-8 ">
