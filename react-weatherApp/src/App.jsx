@@ -6,15 +6,20 @@ import Navbar from "./Components/Navbar";
 import Mainbody from "./Components/Mainbody";
 function App() {
   const[data,setdata]=useState("")
-  const[temp, settemp]=useState('')
+  const[main, setmain]=useState('')
+  const[img, setimg]=useState('')
+  let unix_timestamp ="";
+  console.log(data)
   useEffect(() => {
-
+    
     axios
       .get(APP_URL+"MANNARKKAD"+`&appid=${API_KEY}`)
       .then(function (response) {
        setdata(response.data)
-       settemp(Math.round(response.data.main.temp))
-        console.log(response.data.main);
+       setmain(response.data.main)
+      setimg(response.data.weather[0].main)
+      unix_timestamp = response.data.sys.sunrise
+        console.log(response.data.sys.sunrise);
       })
       .catch(function (error) {
         // handle error
@@ -26,7 +31,8 @@ function App() {
       });
    
   }, []);
-  
+  var date = new Date(unix_timestamp * 1000);
+  const sunrise=(date.getHours()+":"+date.getMinutes())
   return (
     <div
       style={{
@@ -44,7 +50,7 @@ function App() {
           <Navbar/>
         </header>
 
-        <Mainbody data={data} temp={temp} />
+        <Mainbody data={data} main={main} img={img} sunrise={sunrise}/>
         
       </div>
     </div>

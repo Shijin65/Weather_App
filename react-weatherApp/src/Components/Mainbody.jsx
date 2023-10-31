@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Week from './Week';
 const card = [1, 1, 1, 1, 1, 1, 1];
-function Mainbody({data,temp}) {
-    
+function Mainbody({data,main,img}) {
+    console.log(img)
   return (
     <div>
         <div className=" py-5">
@@ -28,8 +28,10 @@ function Mainbody({data,temp}) {
                 
                 {/* 1 */}
                 <div className='lg:basis-1/3 basis-1/2 flex justify-center'>
+
+
                 <img
-                      src="images/clear.png"
+                      src={`images/${img}.png`}
                       alt=""
                       srcset=""
                       className="sunimg h-28 sm:h-32 lg:h-44 "
@@ -45,18 +47,18 @@ function Mainbody({data,temp}) {
                     </h1>
                   </div>
 
-                  {/* date */}
-                <div>
-                    date
-                </div>
+                 
 
                 {/* temp */}
                   <div>
                     <h1 className=" text-white lg:text-9xl font-extralight text-5xl">
-                      {temp}°C
+                      {Math.round(main.temp)}°C
                     </h1>
                   </div>
-                  
+                   {/* date */}
+                <div>
+                    feels Like {main.feels_like}
+                </div>
                   
                 
                 </div>
@@ -64,10 +66,10 @@ function Mainbody({data,temp}) {
              {/* 3 */}
              
                 <div className='flex lg:grid lg:grid-cols-2 lg:flex-wrap justify-around flex-row gap-5 lg:flex-col lg:w-auto w-full   md:my-0 my-'>
-                    <div className='sm:flex flex-col'> <img src="images/sunrise.png" alt="" srcset="" className='h-10'/> <h1>sun rise</h1></div>
+                    <div className='sm:flex flex-col'> <img src="images/sunrise.png" alt="" srcset="" className='h-10'/> <h1>sunrise{}</h1></div>
                     <div className='sm:flex flex-col'> <img src="images/sunset.png" alt="" srcset="" className='h-10'/>  <h1>sunset</h1></div>
-                    <div className='sm:flex flex-col'> <img src="images/sealvl.png" alt="" srcset="" className='h-10'/>  <h1>sealvl</h1></div>
-                    <div className='sm:flex flex-col'> <img src="images/humidity.png" alt="" srcset="" className='h-10'/><h1>humidity</h1></div>
+                    <div className='sm:flex flex-col'> <img src="images/sealvl.png" alt="" srcset="" className='h-10'/>  <h1>sealvl {main.sea_level}m</h1></div>
+                    <div className='sm:flex flex-col'> <img src="images/humidity.png" alt="" srcset="" className='h-10'/><h1>humidity {main.humidity}g/kg</h1></div>
                     <div className='sm:flex flex-col'> <img src="images/wind.png" alt="" srcset="" className='h-8'/> <h1>wind</h1></div>
                 </div>
             </div>
