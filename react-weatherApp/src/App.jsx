@@ -8,7 +8,7 @@ function App() {
   const[data,setdata]=useState("")
   const[main, setmain]=useState('')
   const[img, setimg]=useState('')
-  let unix_timestamp ="";
+  let sun_rise ="";
   console.log(data)
   useEffect(() => {
     
@@ -18,7 +18,8 @@ function App() {
        setdata(response.data)
        setmain(response.data.main)
       setimg(response.data.weather[0].main)
-      unix_timestamp = response.data.sys.sunrise
+      sunrise = response.data.sys.sunrise
+      sunset = response.data.sys.sunset
         console.log(response.data.sys.sunrise);
       })
       .catch(function (error) {
@@ -31,8 +32,10 @@ function App() {
       });
    
   }, []);
-  var date = new Date(unix_timestamp * 1000);
+  var risedate = new Date(unix_timestamp * 1000);
+  var setdate = new Date(unix_timestamp * 1000);
   const sunrise=(date.getHours()+":"+date.getMinutes())
+
   return (
     <div
       style={{
@@ -50,7 +53,7 @@ function App() {
           <Navbar/>
         </header>
 
-        <Mainbody data={data} main={main} img={img} sunrise={sunrise}/>
+        <Mainbody data={data} main={main} img={img} sunrise={sunrise} />
         
       </div>
     </div>

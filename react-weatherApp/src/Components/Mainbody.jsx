@@ -1,8 +1,40 @@
 import React, { useEffect, useState } from 'react'
+import { API_KEY, APP_URL } from "./Constants";
+import axios from "axios";
 import Week from './Week';
 const card = [1, 1, 1, 1, 1, 1, 1];
-function Mainbody({data,main,img}) {
-    console.log(img)
+function Mainbody({}) {
+  const[data,setdata]=useState("")
+  const[main, setmain]=useState('')
+  const[img, setimg]=useState('')
+  let sun_rise ="";
+  let sun_set ="";
+  console.log(data)
+  useEffect(() => {
+    
+    axios
+      .get(APP_URL+"MANNARKKAD"+`&appid=${API_KEY}`)
+      .then(function (response) {
+       setdata(response.data)
+       setmain(response.data.main)
+      setimg(response.data.weather[0].main)
+      sunrise = response.data.sys.sunrise
+      sunset = response.data.sys.sunset
+        console.log(response.data.sys.sunrise);
+      })
+      .catch(function (error) {
+        // handle error
+        alert("error")
+        console.log(error);
+      })
+      .finally(function () {
+        // always executed
+      });
+   
+  }, []);
+  var risedate = new Date(unix_timestamp * 1000);
+  var setdate = new Date(unix_timestamp * 1000);
+  const sunrise=(date.getHours()+":"+date.getMinutes())
   return (
     <div>
         <div className=" py-5">

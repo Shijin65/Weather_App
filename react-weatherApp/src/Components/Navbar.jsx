@@ -1,6 +1,7 @@
 import React from 'react'
 
-function Navbar() {
+function Navbar(setplace) {
+  setplace("mannarkkad")
   return (
     <div>
         <header>
