@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { API_KEY, APP_URL } from "../Constants";
 import axios from "axios";
 import Week from "./Week";
-import { RingLoader } from "react-spinners";
+import { RingLoader,SyncLoader } from "react-spinners";
 const card = [1, 1, 1, 1, 1, 1, 1];
 // var risedate=null;
 function Mainbody({ place }) {
@@ -12,10 +12,13 @@ function Mainbody({ place }) {
   const [rise, setrise] = useState("");
   const [set, setsunset] = useState("");
   const [wind, setwind] = useState("");
+  const [loading, setloading] = useState(false);
+
   useEffect(() => {
-    console.log(place);
+    
     {
       place &&
+      setloading(true)
         axios
           .get(APP_URL + `${place}` + `&appid=${API_KEY}`)
           .then(function (response) {
@@ -30,12 +33,14 @@ function Mainbody({ place }) {
             const settime = setdate.getHours() + ":" + setdate.getMinutes();
             setrise(risetime);
             setsunset(settime);
+            setloading(false)
           })
           .catch(function (error) {
             console.log(error);
           });
     }
-  }, [place]);
+  }
+  , [place]);
 
   return (
     <div className="h-full">
@@ -60,8 +65,13 @@ function Mainbody({ place }) {
           <>
           
 
-          <div className="bg-white  mt-16  sm:mt-5 bg-opacity-20 rounded-md  shadow-[0px_8px_17px_18px_rgba(0,0,0,0.25)] lg:mx-44 my-20   px-5 py-5">
-            <div className="flex w-full text-center  justify-around flex-wrap lg:flex-nowrap my-5">
+          <div className="bg-white  mt-16  sm:mt-5 bg-opacity-20 rounded-md  shadow-[0px_8px_17px_18px_rgba(0,0,0,0.25)] lg:mx-44 my-20  h-full px-5 py-5 ">
+            
+            {loading?<div className="flex justify-center items-center mt-40">
+<SyncLoader
+  color="#36d7b7"
+  speedMultiplier={0.5}
+/></div>:<><div className="flex w-full text-center  justify-around flex-wrap lg:flex-nowrap my-5">
               {/* 1 */}
               <div className="lg:basis-1/3 basis-1/2 flex justify-center">
                 <img
@@ -127,7 +137,7 @@ function Mainbody({ place }) {
               </div>
             </div>
 
-            <Week place={place} />
+            <Week place={place} /></>}
           </div>
         </>
       ): 
