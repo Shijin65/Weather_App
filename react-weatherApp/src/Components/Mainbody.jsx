@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { API_KEY, APP_URL } from "../Constants";
 import axios from "axios";
 import Week from "./Week";
-import { CircleLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 const card = [1, 1, 1, 1, 1, 1, 1];
 // var risedate=null;
 function Mainbody({ place }) {
@@ -38,10 +38,9 @@ function Mainbody({ place }) {
   }, [place]);
 
   return (
-    <div className="h-full"> 
-      {place ? (
-        <div className=" py-5">
-          {/* select place */}
+    <div className="h-full">
+      <div className=" py-5 h-full ">
+       {/* select place */}
           <div className="text-black text-right ">
             <form>
               <select
@@ -56,6 +55,10 @@ function Mainbody({ place }) {
               </select>
             </form>
           </div>
+      {place ? (
+        
+          <>
+          
 
           <div className="bg-white  mt-16  sm:mt-5 bg-opacity-20 rounded-md  shadow-[0px_8px_17px_18px_rgba(0,0,0,0.25)] lg:mx-44 my-20   px-5 py-5">
             <div className="flex w-full text-center  justify-around flex-wrap lg:flex-nowrap my-5">
@@ -126,9 +129,10 @@ function Mainbody({ place }) {
 
             <Week place={place} />
           </div>
-        </div>
-      ): <div className="flex justify-center  h-full"><div className="p-5 bg-whie opacity-20"><CircleLoader className="self-center" color="#00dfff" size={96} /></div></div>}
-    </div>
+        </>
+      ): 
+      <div className="flex justify-center items-center h-full"><RingLoader className="-mt-14 lg:-mt-40" color="#0018ff" /></div>}
+      </div></div>
   );
 }
 

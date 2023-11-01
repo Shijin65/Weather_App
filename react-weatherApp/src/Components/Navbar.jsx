@@ -13,7 +13,7 @@ function Navbar({setplace}) {
         <header>
           <nav className="flex gap-2 justify-between border-b-4 pb-5  border-white border-opacity-50  items-center ">
             <div className="">
-              <h1 className=" md:text-7xl font-extrabold font-mono ">
+              <h1 className="text-lg md:text-7xl font-extrabold font-mono ">
                 5:30{" "}
                 <span className="md:stroke-gray-100 fill-none font-extrabold " style={{}}>
                   AM
