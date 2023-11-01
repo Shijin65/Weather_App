@@ -16,7 +16,7 @@ function App() {
       }}
       className="h-screen w-screen bg-cover bg-center text-white "
     >
-      <div className="p-8">
+      <div className="p-5 h-full">
         <div className="w-full flex justify-center mb-5">
           <h1 className="font-bold text-4xl">SJN weather app</h1>
         </div>
