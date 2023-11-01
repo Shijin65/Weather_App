@@ -144,7 +144,7 @@ function Mainbody({place}) {
             </div>
           </div>
 
-          <Week />
+          <Week place={place}/>
         </div>
       </div>
     </div>
