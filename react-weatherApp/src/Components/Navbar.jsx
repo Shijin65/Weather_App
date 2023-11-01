@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Navbar({setplace}) {
-  const place="mannarkkad"
-  {setplace(place)}
+  const[value,setvalue]=useState([])
+  
+   const handlesubmite =()=>{
+    setplace(value)
+   }
+
+  
   return (
     <div>
         <header>
@@ -16,17 +21,20 @@ function Navbar({setplace}) {
               </h1>
               <h1 className="sm:text-4xl font-extrabold font-mono ">wednesday</h1>
             </div>
-
             {/* search */}
             <div className="flex gap-2 sm:h-10">
               <input
                 type="text"
                 name=""
                 id=""
+                value={value}
+                onChange={((e)=>{
+                  setvalue(e.target.value)
+                })}
                 className=" rounded-md  border-2 border-white bg-white bg-opacity-20 ps-5 sm:text-xl "
                 placeholder="write your place here......."
               />
-              <div className="btn rounded-full sm:px-5 px-1 bg-white flex items-center ">
+              <div className="btn rounded-full sm:px-5 px-1 bg-white flex items-center hover:bg-gray-300" onClick={handlesubmite}>
                 <img
                   src="images\search.png"
                   alt="search icon"

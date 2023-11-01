@@ -1,6 +1,21 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect } from 'react'
+import { API_KEY, APP_URL } from '../Constants';
 const card=[1,1,1,1,1,1,1]
 function Week() {
+  useEffect(()=>{
+    axios
+    .get(APP_URL + "MANNARKKAD" + `&appid=${API_KEY}`)
+    .then(function (response) 
+    {
+     
+    })
+    .catch(function (error) {
+      // handle error
+      alert(error);
+      console.log(error);
+    })
+  })
   return (
     
         <div className="md:px-10 w-full ">
@@ -11,13 +26,12 @@ function Week() {
                 {/* card */}
                 {card.map((item) => (
                   <span>
-                  <div className=" card flex-col pt-3 md:w-28  sm:w-auto items-center bg-white border-white border-2 rounded-md bg-opacity-50 text-slate-600 mt-3 text-center ">
+                  <div key={Date} className=" card flex-col pt-3 md:w-28  sm:w-auto items-center bg-white border-white border-2 rounded-md bg-opacity-50 text-slate-600 mt-3 text-center ">
                     <h1>Monday</h1>
                     <div className="flex justify-center">
                       <img
                         src="images/clouds.png"
                         alt=""
-                        srcset=""
                         className="md:h-20"
                       />
                     </div>

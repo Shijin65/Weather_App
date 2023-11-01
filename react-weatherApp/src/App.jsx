@@ -1,9 +1,12 @@
 import "./app.css"
 import Navbar from "./Components/Navbar";
 import Mainbody from "./Components/Mainbody";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 function App() {
  const[place,setplace]=useState("")
+ useEffect(()=>{
+  localStorage.setItem("place",place)
+ },)
   return (
     <div
       style={{
