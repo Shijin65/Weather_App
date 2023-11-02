@@ -4,6 +4,7 @@ import axios from "axios";
 import Week from "./Week";
 import { RingLoader,SyncLoader } from "react-spinners";
 const card = [1, 1, 1, 1, 1, 1, 1];
+const places =["mannarkkad","palakkad","kozhikode","los angeles"]
 // var risedate=null;
 function Mainbody({ place }) {
   const [data, setdata] = useState([]);
@@ -41,33 +42,21 @@ function Mainbody({ place }) {
     }
   }
   , [place]);
+// const clickhandler=(e)=>{
 
+// }
   return (
     <div className="h-full">
-      <div className=" py-5 h-full ">
-       {/* select place */}
-          <div className="text-black text-right ">
-            <form>
-              <select
-                id="cars"
-                name="cars"
-                className=" w-32 sm:w-48 h-8 px-2 text-gray-700 text-xs rounded-lg bg-opacity-50 bg-white "
-              >
-                <option>MANNARKKAD</option>
-                <option value="saab">Saab</option>
-                <option value="fiat">Fiat</option>
-                <option value="audi">Audi</option>
-              </select>
-            </form>
-          </div>
+      <div className="  h-full ">
+       
       {place ? (
         
           <>
           
 
-          <div className="bg-white  mt-16  sm:mt-5 bg-opacity-20 rounded-md  shadow-[0px_8px_17px_18px_rgba(0,0,0,0.25)] lg:mx-44 my-20  h-full px-5 py-5 ">
+          <div className="bg-white  mt-16  sm:mt-5 bg-opacity-20 rounded-md  shadow-[0px_8px_17px_18px_rgba(0,0,0,0.25)] lg:mx-44 my-20 8 px-5 py-5 ">
             
-            {loading?<div className="flex justify-center items-center mt-40">
+            {loading?<div className="flex justify-center items-center h-full">
 <SyncLoader
   color="#36d7b7"
   speedMultiplier={0.5}
@@ -76,7 +65,7 @@ function Mainbody({ place }) {
               <div className="lg:basis-1/3 basis-1/2 flex justify-center">
                 <img
                   src={`images/${img}.png`}
-                  alt=""
+                  alt="places"
                   className="sunimg h-28 sm:h-32 lg:h-44 "
                 />
               </div>
@@ -104,32 +93,32 @@ function Mainbody({ place }) {
 
               <div className="flex lg:grid lg:grid-cols-2 lg:flex-wrap justify-around flex-row gap-5 lg:flex-col lg:w-auto w-full  lg:text-xs md:my-0 my-">
                 <div className="sm:flex flex-col">
-                  <img src="images/sunrise.png" alt="" className="h-10" />
+                  <img src="images/sunrise.png" alt="places" className="h-10" />
                   <h1>
                     sunrise <span className="font-bold">{rise}</span>
                   </h1>
                 </div>
                 <div className="sm:flex flex-col">
-                  <img src="images/sunset.png" alt="" className="h-10" />
+                  <img src="images/sunset.png" alt="places" className="h-10" />
                   <h1>
                     sunset <span className="font-bold">{set}</span>
                   </h1>
                 </div>
                 <div className="sm:flex flex-col">
-                  <img src="images/sealvl.png" alt="" className="h-10" />
+                  <img src="images/sealvl.png" alt="places" className="h-10" />
                   <h1>
                     sealvl <span className="font-bold">{main.sea_level}m</span>
                   </h1>
                 </div>
                 <div className="sm:flex flex-col">
-                  <img src="images/humidity.png" alt="" className="h-10" />
+                  <img src="images/humidity.png" alt="places" className="h-10" />
                   <h1>
                     humidity{" "}
                     <span className="font-bold">{main.humidity}g/kg</span>
                   </h1>
                 </div>
                 <div className="sm:flex flex-col ">
-                  <img src="images/wind.png" alt="" className="h-9" />
+                  <img src="images/wind.png" alt="places" className="h-9" />
                   <h1>
                     wind <span className="font-bold">{wind.speed}m/s</span>
                   </h1>
