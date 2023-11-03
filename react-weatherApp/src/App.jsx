@@ -34,7 +34,7 @@ function App() {
               onChange={(e)=>{setplace(e.target.value)}}>
                 
                 
-                {places.map((place)=><option className="font-medium text-xs uppercase"  value={place}>{place}</option>)}
+                {places.map((place)=><option  className="font-medium text-xs uppercase"  value={place}>{place}</option>)}
                 
                 
               </select>

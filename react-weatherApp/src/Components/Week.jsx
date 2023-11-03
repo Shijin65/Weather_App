@@ -13,14 +13,14 @@ function Week({ place }) {
           }, [])
           .catch(function (error) {
             // handle error
-            alert(error);
+            
             console.log(error);
           });}
         
     
 
   },[place]);
-  console.log(data)
+  
   return (
     <div className="md:px-10 w-full ">
       <div className="text-lg sm:text-2xl  border-b-4  border-white border-opacity-50 w-full">
