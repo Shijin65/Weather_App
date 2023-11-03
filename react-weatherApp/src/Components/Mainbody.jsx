@@ -42,6 +42,7 @@ function Mainbody({ place }) {
     }
   }
   , [place]);
+  console.log(img)
 // const clickhandler=(e)=>{
 
 // }
