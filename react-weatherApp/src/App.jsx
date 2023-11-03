@@ -2,17 +2,19 @@ import "./app.css"
 import Navbar from "./Components/Navbar";
 import Mainbody from "./Components/Mainbody";
 import { useEffect, useState } from "react";
+import nightmoon from "../images/nightmoon.jpg"
 function App() {
   const places =["mannarkkad","palakkad","kozhikode","los angeles"]
- const[place,setplace]=useState("")
+ const[place,setplace]=useState(null)
  useEffect(()=>{
   localStorage.setItem("place",place)
  },)
+ console.log(nightmoon)
   return (
     <div
       style={{
         backgroundImage:
-          "url(https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)",
+          `url(${nightmoon})`,
         fontFamily: "Inter",
       }}
       className="h-screen w-screen bg-cover bg-center text-white "

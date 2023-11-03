@@ -18,8 +18,7 @@ import drizzle from "../../images/drizzle.png";
 import clouds from "../../images/clouds.png";
 import cloudy from "../../images/cloudy.jpg";
 
-
-
+const climet = [];
 const card = [1, 1, 1, 1, 1, 1, 1];
 const places = ["mannarkkad", "palakkad", "kozhikode", "los angeles"];
 // var risedate=null;
@@ -31,12 +30,10 @@ function Mainbody({ place }) {
   const [set, setsunset] = useState("");
   const [wind, setwind] = useState("");
   const [loading, setloading] = useState(false);
-  
+
   useEffect(() => {
-    
     {
-      place==="" && 
-      setloading(true);
+       setloading(true);
       axios
         .get(APP_URL + `${place}` + `&appid=${API_KEY}`)
         .then(function (response) {
@@ -59,11 +56,10 @@ function Mainbody({ place }) {
         });
     }
   }, [place]);
-  console.log(img)
   return (
     <div className="h-full">
       <div className="  h-full ">
-        {place  ? (
+        {place ? (
           <>
             <div className="bg-white  mt-16  sm:mt-5 bg-opacity-20 rounded-md  shadow-[0px_8px_17px_18px_rgba(0,0,0,0.25)] lg:mx-44 my-20 8 px-5 py-5 ">
               {loading ? (
@@ -74,14 +70,56 @@ function Mainbody({ place }) {
                 <>
                   <div className="flex w-full text-center  justify-around flex-wrap lg:flex-nowrap my-5">
                     {/* 1 */}
-                    <div className="lg:basis-1/3 basis-1/2 flex justify-center">
-                      <img
-                        src={"./images/clear.png"}
-                        alt="places"
-                        className="sunimg h-28 sm:h-32 lg:h-44 "
-                      />
-                     
-
+                    <div className="lg:basis-1/3 basis-1/2 flex justify-center animate-pulse">
+                      {img === "Clear" && (
+                        <img
+                          src={clear}
+                          alt="places"
+                          className="sunimg h-28 sm:h-32 lg:h-44 "
+                        />
+                      )}
+                      {img === "Rain" && (
+                        <img
+                          src={rain}
+                          alt="places"
+                          className="sunimg h-28 sm:h-32 lg:h-44 "
+                        />
+                      )}
+                      {img === "Snow" && (
+                        <img
+                          src={snow}
+                          alt="places"
+                          className="sunimg h-28 sm:h-32 lg:h-44 "
+                        />
+                      )}
+                      {img === "Mist" && (
+                        <img
+                          src={mist}
+                          alt="places"
+                          className="sunimg h-28 sm:h-32 lg:h-44 "
+                        />
+                      )}
+                      {img === "Drizzle" && (
+                        <img
+                          src={drizzle}
+                          alt="places"
+                          className="sunimg h-28 sm:h-32 lg:h-44 "
+                        />
+                      )}
+                      {img === "Clouds" && (
+                        <img
+                          src={clouds}
+                          alt="places"
+                          className="sunimg h-28 sm:h-32 lg:h-44 "
+                        />
+                      )}
+                      {img === "Cloudy" && (
+                        <img
+                          src={cloudy}
+                          alt="places"
+                          className="sunimg h-28 sm:h-32 lg:h-44 animate-bounce"
+                        />
+                      )}
                     </div>
 
                     {/* 2 */}
@@ -100,60 +138,43 @@ function Mainbody({ place }) {
                         </h1>
                       </div>
                       {/* date */}
-                      <div>feels Like {main.feels_like}</div>
+                      <div>
+                        feels Like {main.feels_like} {"  "}
+                        {img}
+                      </div>
                     </div>
 
                     {/* 3 */}
 
                     <div className="flex lg:grid lg:grid-cols-2 lg:flex-wrap justify-around flex-row gap-5 lg:flex-col lg:w-auto w-full  lg:text-xs md:my-0 my-">
                       <div className="sm:flex flex-col">
-                        <img
-                          src={sunrise}
-                          alt="places"
-                          className="h-10"
-                        />
+                        <img src={sunrise} alt="places" className="h-10" />
                         <h1>
                           sunrise <span className="font-bold">{rise}</span>
                         </h1>
                       </div>
                       <div className="sm:flex flex-col">
-                        <img
-                          src={sunset}
-                          alt="places"
-                          className="h-10"
-                        />
+                        <img src={sunset} alt="places" className="h-10" />
                         <h1>
                           sunset <span className="font-bold">{set}</span>
                         </h1>
                       </div>
                       <div className="sm:flex flex-col">
-                        <img
-                          src={sealvl}
-                          alt="places"
-                          className="h-10"
-                        />
+                        <img src={sealvl} alt="places" className="h-10" />
                         <h1>
                           sealvl{" "}
                           <span className="font-bold">{main.sea_level}m</span>
                         </h1>
                       </div>
                       <div className="sm:flex flex-col">
-                        <img
-                          src={humidity}
-                          alt="places"
-                          className="h-10"
-                        />
+                        <img src={humidity} alt="places" className="h-10" />
                         <h1>
                           humidity{" "}
                           <span className="font-bold">{main.humidity}g/kg</span>
                         </h1>
                       </div>
                       <div className="sm:flex flex-col ">
-                        <img
-                          src={Wind}
-                          alt="places"
-                          className="h-9"
-                        />
+                        <img src={Wind} alt="places" className="h-9" />
                         <h1>
                           wind{" "}
                           <span className="font-bold">{wind.speed}m/s</span>
