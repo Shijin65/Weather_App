@@ -2,22 +2,42 @@ import "./app.css"
 import Navbar from "./Components/Navbar";
 import Mainbody from "./Components/Mainbody";
 import { useEffect, useState } from "react";
+
 import nightmoon from "../images/nightmoon.jpg"
+import evenning from "../images/evenning.jpg"
+import morningsun from "../images/morningsun.jpg"
 function App() {
-  const places =["mannarkkad","palakkad","kozhikode","los angeles"]
- const[place,setplace]=useState(null)
+const places =["mannarkkad","palakkad","kozhikode","los angeles"]
+const[place,setplace]=useState(null)
+const[bg,setbg]=useState("")
  useEffect(()=>{
   localStorage.setItem("place",place)
+const time = new Date().getHours() 
+if (time<=5) {
+  setbg(nightmoon)
+} 
+  else if (time<=11) {
+  setbg(morningsun)
+ }
+ else if (time<=19) {
+  setbg(evenning)
+ }
+ else if (time<=23) {
+  setbg(nightmoon)
+ }
  },)
- console.log(nightmoon)
+ 
+ 
+ console.log(evenning)
+
   return (
     <div
       style={{
         backgroundImage:
-          `url(${nightmoon})`,
+          `url(${bg})`,
         fontFamily: "Inter",
       }}
-      className="h-screen w-screen bg-cover bg-center text-white "
+      className="h-screen w-screen bg-cover bg-center text-white bg-opacity-50 "
     >
       <div className="p-5 h-full">
         <div className="w-full flex justify-center mb-5">
