@@ -18,10 +18,7 @@ import drizzle from "../../images/drizzle.png";
 import clouds from "../../images/clouds.png";
 import cloudy from "../../images/cloudy.jpg";
 
-const climet = [];
-const card = [1, 1, 1, 1, 1, 1, 1];
-const places = ["mannarkkad", "palakkad", "kozhikode", "los angeles"];
-// var risedate=null;
+
 function Mainbody({ place }) {
   const [data, setdata] = useState([]);
   const [main, setmain] = useState("");
@@ -32,7 +29,7 @@ function Mainbody({ place }) {
   const [loading, setloading] = useState(false);
 
   useEffect(() => {
-    {
+    { place &&
        setloading(true);
       axios
         .get(APP_URL + `${place}` + `&appid=${API_KEY}`)
@@ -57,13 +54,13 @@ function Mainbody({ place }) {
     }
   }, [place]);
   return (
-    <div className="h-full">
-      <div className="  h-full ">
+    <div className="">
+      <div className=" ">
         {place ? (
           <>
-            <div className="bg-white  mt-16  sm:mt-5 bg-opacity-20 rounded-md  shadow-[0px_8px_17px_18px_rgba(0,0,0,0.25)] lg:mx-44 my-20 8 px-5 py-5 ">
+            <div className="bg-white sm:mt-5 bg-opacity-20 rounded-md  shadow-[0px_8px_17px_18px_rgba(0,0,0,0.25)] lg:mx-44  p-1 ">
               {loading ? (
-                <div className="flex justify-center items-center h-full">
+                <div className="flex justify-center items-center  py-2">
                   <SyncLoader color="#36d7b7" speedMultiplier={0.5} />
                 </div>
               ) : (
@@ -146,7 +143,7 @@ function Mainbody({ place }) {
 
                     {/* 3 */}
 
-                    <div className="flex lg:grid lg:grid-cols-2 lg:flex-wrap justify-around flex-row gap-5 lg:flex-col lg:w-auto w-full  lg:text-xs md:my-0 my-">
+                    <div className="flex flex-wrap lg:grid lg:grid-cols-2 lg:flex-wrap justify-around flex-row gap-5 lg:flex-col lg:w-auto w-full  lg:text-xs md:my-0 my-">
                       <div className="sm:flex flex-col">
                         <img src={sunrise} alt="places" className="h-10" />
                         <h1>
@@ -182,15 +179,14 @@ function Mainbody({ place }) {
                       </div>
                     </div>
                   </div>
-
                   <Week place={place} />
                 </>
               )}
             </div>
           </>
         ) : (
-          <div className="flex justify-center items-center h-full">
-            <RingLoader className="-mt-14 lg:-mt-40" color="#0018ff" />
+          <div className="flex justify-center items-center ">
+            <RingLoader className="sm:-mt-14 lg:-mt-40" color="#0018ff" />
           </div>
         )}
       </div>

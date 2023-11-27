@@ -8,7 +8,7 @@ import evenning from "../images/evenning.jpg"
 import morningsun from "../images/morningsun.jpg"
 function App() {
 const places =["mannarkkad","palakkad","kozhikode","los angeles"]
-const[place,setplace]=useState(null)
+const[place,setplace]=useState("mannarkkad")
 const[bg,setbg]=useState("")
  useEffect(()=>{
   localStorage.setItem("place",place)
@@ -37,7 +37,7 @@ if (time<=5) {
           `url(${bg})`,
         fontFamily: "Inter",
       }}
-      className="h-screen w-screen bg-cover bg-center text-white bg-opacity-50 "
+      className="h-screen w-screen bg-cover bg-center text-white bg-opacity-50 overflow-y-scroll over"
     >
       <div className="p-5 h-full">
         <div className="w-full flex justify-center mb-5">
@@ -47,12 +47,12 @@ if (time<=5) {
           <Navbar setplace={setplace}/>
         </header>
         {/* select place */}
-        <div className="text-black text-right pt-5">
+        <div className="text-black text-right pt-2 ">
             <form>
               <select
                 id="places"
                 name="places"
-                className=" w-32 sm:w-48 h-8 px-2 text-gray-700 text-xs font-medium uppercase rounded-lg bg-opacity-50 bg-white "
+                className=" w-28 sm:w-48 h-8 px-2 text-gray-700 text-xs font-medium uppercase rounded-lg bg-opacity-50 bg-white "
               onChange={(e)=>{setplace(e.target.value)}}>
                 
                 

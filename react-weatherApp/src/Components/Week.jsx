@@ -1,6 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { API_KEY, APP_URL } from "../Constants";
+
+
+import rain from "../../images/rain.png";
+import snow from "../../images/snow.png";
+import clear from "../../images/clear.png";
+import mist from "../../images/mist.png";
+import drizzle from "../../images/drizzle.png";
+import clouds from "../../images/clouds.png";
+import cloudy from "../../images/cloudy.jpg";
+
+
 const card = [1, 1, 1, 1, 1, 1, 1];
 function Week({ place }) {
   const[data,setdata]=useState([])
@@ -8,14 +19,10 @@ function Week({ place }) {
     {place && axios
           .get('https://api.openweathermap.org/data/2.5/forecast?units=metric&cnt=8&q='+`${place}`+`&appid=${API_KEY}`)
           .then((response) => {
-            console.log(response.data.list[0].weather[0].main);
+            
             setdata(response.data.list)
           }, [])
-          .catch(function (error) {
-            // handle error
-            
-            console.log(error);
-          });}
+          }
         
     
 
@@ -32,14 +39,34 @@ function Week({ place }) {
           <span>
             <div
               key={Date}
-              className=" card flex-col pt-3 sm:w-28  w-24 items-center bg-black border-white border-2 rounded-md bg-opacity-50 text-slate-600 mt-3 text-center "
+              className=" card h-44 flex-col pt-3 sm:w-28  w-24 items-center bg-black border-white border-2 rounded-md bg-opacity-50 text-slate-600 mt-3 text-center "
             >
               <h1 className="text-white font-bold ">{weather.dt_txt}</h1>
+
               <div className="flex justify-center">
-                <img 
-                src={`images/${weather.weather[0].main}.png`}
-                 alt="" className="md:h-20" />
+                {weather.weather[0].main==="Clear"&&<img 
+                src={clear}
+                 alt="" className="md:h-20" />}
+                 {weather.weather[0].main==="Rain"&&<img 
+                src={rain}
+                 alt="" className="md:h-20" />}
+                 {weather.weather[0].main==="Snow"&&<img 
+                src={snow}
+                 alt="" className="md:h-20" />}
+                 {weather.weather[0].main==="Drizzle"&&<img 
+                src={drizzle}
+                 alt="" className="md:h-20" />}
+                 {weather.weather[0].main==="Mist"&&<img 
+                src={mist}
+                 alt="" className="md:h-20" />}
+                 {weather.weather[0].main==="Clouds"&&<img 
+                src={clouds}
+                 alt="" className="md:h-20" />}
+                 {weather.weather[0].main==="Cloudy"&&<img 
+                src={cloudy}
+                 alt="" className="md:h-20" />}
               </div>
+
               <h4 className="text-white">{Math.round(weather.main.temp_max)}/{Math.floor(weather.main.temp_min)}°C</h4>
             </div>
           </span>

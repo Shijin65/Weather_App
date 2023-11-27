@@ -10,7 +10,8 @@ function Navbar({ setplace }) {
     setTime(time);
   };
   setInterval(updatetime, 1000);
-  const handlesubmite = () => {
+  const handlesubmite = (e) => {
+    e.preventDefault()
     if (value!=="") {
       setplace(value);
     }else{
@@ -33,7 +34,9 @@ function Navbar({ setplace }) {
           </div>
           {/* search */}
           <div className="flex gap-2 sm:h-10">
-            <input
+            <form action="" onSubmit={handlesubmite}>
+              
+              <input
               type="text"
               name=""
               id=""
@@ -49,12 +52,15 @@ function Navbar({ setplace }) {
               className=" rounded-md  border-2 border-white bg-white bg-opacity-20 ps-5 sm:text-xl "
               placeholder="write your place here......."
             />
-            <div
-              className="btn rounded-full sm:px-5 px-1 bg-white flex items-center hover:bg-gray-300"
+              
+              </form>
+              <div
+              className="btn rounded-full sm:px-5 px-1 bg-white flex items-center hover:bg-gray-300 w-5 sm:w-auto"
               onClick={handlesubmite}
             >
-              <img src={search} alt="search icon" className=" h-5 sm:h-8 " />
+              <img src={search} alt="search icon" className=" h-5 w-5 sm:h-8 " />
             </div>
+            
           </div>
         </nav>
       </header>
